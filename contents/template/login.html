@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+<title>login</title>
+<meta name="description" content="ログイン">
+{% if num == 0 %}
+<style>
+  #flash{
+    color: red;
+  }
+</style>
+{% endif %}
+{% endblock %}
+{% block body %}
+<form action="/login" method=post>
+  <label>
+    <dl>
+      <dt>ユーザー名</dt>
+      <dt><input type="text" name="username" required></dt>
+    </dl>
+  </label>
+  <label>
+    <dl>
+      <dt>パスワード</dt>
+      <dt><input type="password" name="password" required></dt>
+    </dl>
+  </label>
+  <br>
+  <button type="submit">Login</button>
+</form>
+<br>
+<a href="/sign-in">アカウントの作成</a>
+{% endblock %}

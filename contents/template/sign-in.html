@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}
+<title>sign-in</title>
+<meta name="description" content="サインイン">
+{% if num == 0 %}
+<style>
+  #flash{
+    color: red;
+  }
+</style>
+{% endif %}
+{% endblock %}
+{% block body %}
+<form action="/sign-in" method=post>
+  <label>
+    <dl>
+      <dt>ユーザー名</dt>
+      <dt><input type="text" name="username" required></dt>
+    </dl>
+  </label>
+  <label>
+    <dl>
+      <dt>パスワード</dt>
+      <dt><input type="password" name="password" required></dt>
+    </dl>
+  </label>
+  <label>
+    <dl>
+      <dt>パスワード再入力</dt>
+      <dt><input type="password" name="password2" required></dt>
+    </dl>
+  </label>
+  <button type="submit">アカウント作成</button>
+</form>
+<br>
+<a href="/login">ログインに切り替え</a>
+{% endblock %}

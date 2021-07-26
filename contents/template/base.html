@@ -1,0 +1,21 @@
+<!-- 共通部分の設定 -->
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href = "static/style/base.css" rel = "stylesheet" type = "text/css">
+        <link rel="icon" type="image/png" href="/static/img/favicon.png">
+    {% block title %}{% endblock %}
+    </head>
+    <body>
+      <p>test</p>
+    {% for message in get_flashed_messages() %}
+      <div class="" id="flash">
+          {{ message }} <!-- flashの内容を表示 -->
+      </div>
+    {% endfor %}
+    {% block body %}
+    {% endblock %}
+    </body>
+</html>
