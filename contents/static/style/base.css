@@ -1,0 +1,106 @@
+body{
+  margin: 0;
+}
+#all_wrapper{
+  display: flex;
+  height: 100vh;
+  background: #d1d1d1;
+}
+#icon_link{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: small;
+  padding-bottom: 0px;
+}
+#nav{
+  padding-top: 1%;
+  float: left;
+  width: 5%;
+  height: 99%;
+  background-color: #EFEFEF;
+  margin-right: 1%;
+  position: fixed;
+}
+#nav_partition{
+  height: 2%;
+}
+.mainwrapper{
+  float: right;
+  width:89%;
+  margin-left: 6%;
+}
+.nav_img{
+  width: 100%;
+}
+#title{
+  text-align: center;
+  color: black;
+  text-decoration: none;
+}
+#nav_bottom{
+  display: flex;
+  float: bottom;
+  bottom: 10px;
+}
+#task_graph{
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  height: 300px;
+  border-radius: 50px;
+  background: #d1d1d1;
+  box-shadow:  20px 20px 60px #b2b2b2,
+              -20px -20px 60px #f0f0f0;
+  text-align: center;
+  margin-top: 20px;
+}
+#task{
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+#task_index{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr 2fr 2fr;
+  border-radius: 50px;
+  background: #d1d1d1;
+  box-shadow:  20px 20px 60px #b2b2b2,
+              -20px -20px 60px #f0f0f0;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 10px;
+  padding: 10px 0;
+}
+#add_task_form{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr 2fr 2fr;
+}
+#add_task_form input{
+  margin:0 5px;
+}
+.tasks{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 5fr 2fr 2fr;
+}
+.tasks div{
+  margin: 7px;
+  margin-left: 2em;
+}
+.tasks .tasks_id{
+  margin-left: 4em;
+}
+#task_group{
+  border-radius: 50px;
+  background: #d1d1d1;
+  box-shadow:  20px 20px 60px #b2b2b2,
+              -20px -20px 60px #f0f0f0;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

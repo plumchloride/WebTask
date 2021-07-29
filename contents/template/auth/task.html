@@ -4,9 +4,43 @@
 <meta name="description" content="タスク">
 {% endblock %}
 {% block body %}
-<dl>
-  <dt>ユーザー名</dt>
-  <dd>{{ name }}</dd>
-</dl>
-<a href="/logout">ログアウト</a>
+<div id="task_graph"></div>
+<br><br>
+<div id="task">
+  <div id="task_index">
+    <div>Id</div>
+    <div>Name</div>
+    <div>Tag</div>
+    <div>Deadline</div>
+  </div>
+  <div id="add_task">
+    <form id="add_task_form" action="/task" method=post>
+      <button type="submit">add</button>
+      <input type="text" name="Name" required>
+      <input type="text" name="Tag" required>
+      <input type="datetime-local" name="Deadline" id="date"required>
+    </form>
+  </div>
+  <div id="task_group">
+    {% for i in index  %}
+    <div class="tasks">
+      <div class="tasks_id">{{ i+1 }}</div>
+      <div>{{ task_names[i]}}</div>
+      <div>{{ tags[i] }}</div>
+      <div>{{ deadline_days[i][:10] }} {{ deadline_times[i][-4:] }}</div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+<script>
+  window.onload = function () {
+    date = new Date()
+    date.setDate(date.getDate() + 1);
+    var y = date.getFullYear();
+    var m = ('00' + (date.getMonth()+1)).slice(-2);
+    var d = ('00' + date.getDate()).slice(-2);
+    document.getElementById("date").value = (y + '-' + m + '-' + d+'T00:00');
+  }
+</script>
 {% endblock %}

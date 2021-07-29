@@ -4,18 +4,36 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href = "static/style/base.css" rel = "stylesheet" type = "text/css">
-        <link rel="icon" type="image/png" href="/static/img/favicon.png">
+        <link href = "../static/style/base.css" rel = "stylesheet" type = "text/css">
+        <link rel="icon" type="image/png" href="../static/img/favicon.png">
     {% block title %}{% endblock %}
     </head>
     <body>
-      <p>test</p>
-    {% for message in get_flashed_messages() %}
-      <div class="" id="flash">
-          {{ message }} <!-- flashの内容を表示 -->
+      <div id="all_wrapper">
+        <div id="nav">
+          <a href="/main" style="text-decoration: none;"><img class="nav_img" src="../static/img/favicon.png">
+          <p id="title">automatic week</p></a>
+          <div id="nav_partition"></div>
+          <a href="/task"><img class="nav_img" src="../static/img/icons8-reminders-100.png"></a>
+          <a href="/graph"><img class="nav_img" src="../static/img/icons8-bar-chart-100.png"></a>
+          <a href="/cal"><img class="nav_img" src="../static/img/cal.PNG"></a>
+          <a href="/main"><img class="nav_img" src="../static/img/icons8-ヘルプ-100.png"></a>
+          <div style="position: absolute; bottom:10px;"><a href="/user"><img class="nav_bottom" src="../static/img/icons8-男性ユーザ-100.png"></a></div>
+        </div>
+        {% if not session.logged_in %}
+        {% else %}
+        {% endif %}
+        <!-- <p>test</p> -->
+      <div class="mainwrapper">
+        {% block body %}
+        {% endblock %}
+        {% for message in get_flashed_messages() %}
+        <div class="" id="flash">
+            {{ message }} <!-- flashの内容を表示 -->
+        </div>
+        {% endfor %}
+        <div id="icon_link">all icon by <a target="_blank" href="https://icons8.com">Icons8</a></div>
       </div>
-    {% endfor %}
-    {% block body %}
-    {% endblock %}
+    </div>
     </body>
 </html>

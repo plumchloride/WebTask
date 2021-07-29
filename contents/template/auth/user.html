@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}
+<title>user</title>
+<meta name="description" content="ユーザー">
+{% endblock %}
+{% block body %}
+<dl>
+  <dt>ユーザー名</dt>
+  <dd>{{ name }}</dd>
+</dl>
+<a href="/logout">ログアウト</a>
+{% endblock %}

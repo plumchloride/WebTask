@@ -4,6 +4,7 @@ from contents import auth
 from contents import database
 import random
 import string
+import datetime
 
 # flash用定義
 app.config['JSON_AS_ASCII'] = False
@@ -71,4 +72,24 @@ def task():
   if not(auth.check()[0]):
     return auth.check()[1]
   else:
-    return render_template("/auth/task.html",name=session["user_name"])
+    tasks = database.read_task(session["user_id"])
+    nums = []
+    for i in range(len(tasks["name"])):
+      nums.append(i)
+    return render_template("/auth/task.html",task_names = tasks["name"],tags=tasks["tag"],deadline_days = tasks["deadline"],deadline_times = tasks["deadline"],index = nums)
+
+@app.route("/task", methods=["GET","POST"])
+def task_get():
+  if not(auth.check()[0]):
+    return auth.check()[1]
+  else:
+    if request.method == "GET":
+      return redirect(url_for("task"))
+    database.add_task(session["user_id"],request.form["Name"],request.form["Tag"],request.form["Deadline"])
+    return redirect(url_for("task"))
+@app.route("/user", methods=["GET"])
+def user():
+  if not(auth.check()[0]):
+    return auth.check()[1]
+  else:
+    return render_template("/auth/user.html",name=session["user_name"])
