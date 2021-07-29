@@ -8,6 +8,8 @@ Python/Flask
 HTML/JavaScript/CSS
 
 # 機能
+
+## タスク画面に関して
 - [ ] done出来る様に
 - [ ] 日付順に
 - [ ] 時間ごとに
