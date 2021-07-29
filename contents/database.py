@@ -48,10 +48,9 @@ def read_task(id):
   day_list = []
   for i in range(7):
     day_list.append((datetime.datetime.now()+datetime.timedelta(days=i+1)).strftime('%Y-%m-%d'))
-  print(day_list)
   con = sqlite3.connect("./contents/task.db")
   cur = con.cursor()
-  task = {"name":[],"tag":[],"deadline":[],"time":[]}
+  task = {"name":[],"tag":[],"deadline":[],"time":[],"day_list":day_list}
   for i in day_list:
     result =  cur.execute("SELECT * FROM task WHERE day = ? and user_id = ?;",(i,id,))
     for i in result:

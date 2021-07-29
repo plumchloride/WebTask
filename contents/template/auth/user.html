@@ -56,9 +56,9 @@
         <div class="form_wrapper_wrapper">
           <div class="form_wrapper">
             <div class="label_us"><label><div>睡眠開始時刻</div><div><input type="time" name="start_sleep" value="23:00" required></div></label></div>
-            <div class="label_us"><label><div>1日の睡眠時間</div><input class="min-input" type="number" minlength="0" name="sleep_time" value="480" required>minutes</label></div>
-            <div class="label_us"><label><div>1日の自習時間</div><input class="min-input" type="number" minlength="0" name="study_time" value="180" required>minutes</label></div>
-            <div class="label_us"><label><div>1日の娯楽時間</div><input class="min-input" type="number" minlength="0" name="hoby_time" value="60" required>minutes</label></div>
+            <div class="label_us"><label><div>1日の睡眠時間</div><input class="min-input" type="number" min="0" name="sleep_time" value="480" required>minutes</label></div>
+            <div class="label_us"><label><div>1日の自習時間</div><input class="min-input" type="number" min="0" name="study_time" value="180" required>minutes</label></div>
+            <div class="label_us"><label><div>1日の娯楽時間</div><input class="min-input" type="number" min="0" name="hoby_time" value="60" required>minutes</label></div>
             <div class="radio label_us"><div>タスク取り組みに対する方向性1</div>
               <div>
                 <label><input type="radio" name="task_ve_1" value="now" required>すぐ取り組む</label>
@@ -90,13 +90,13 @@
             <div class="label_us" style="color: red;">{{ flash_hand }}</div>
           </div>
           <div class="form_wrapper">
-            <div class="label_us"><label><div>朝の支度時間</div><input class="min-input" type="number" minlength="0"  name="morning_time" value="60" required>minutes</label></div>
+            <div class="label_us"><label><div>朝の支度時間</div><input class="min-input" type="number" min="0"  name="morning_time" value="60" required>minutes</label></div>
             <div class="label_us"><label><div>昼休憩の開始時間</div><input type="time" name="lunch_start_time" value="12:00" required></label></div>
-            <div class="label_us"><label><div>昼休憩の時間</div><input class="min-input" type="number" minlength="0"  name="lunch_time" value="60" required>minutes</label></div>
+            <div class="label_us"><label><div>昼休憩の時間</div><input class="min-input" type="number" min="0"  name="lunch_time" value="60" required>minutes</label></div>
             <div class="label_us"><label><div>夜飯＋お風呂等の開始時間</div><input type="time" name="bath_start_time" value="20:00" required></label></div>
-            <div class="label_us"><label><div>夜飯＋お風呂等の時間</div><input class="min-input" type="number"  minlength="0" name="bath_time" value="90" required>minutes</label></div>
+            <div class="label_us"><label><div>夜飯＋お風呂等の時間</div><input class="min-input" type="number"  min="0" name="bath_time" value="90" required>minutes</label></div>
             <div class="label_us"><label><div>タスク時間の上乗せ<br><small>(どれくらい余裕を持つか)</small></div><input class="min-input" type="number" name="add_tasktime" value="0" required>%</label></div>
-            <div class="label_us"><label><div>各タスク間の時間</div><input class="min-input" type="number" minlength="0"  name="bt_time" value="10" required>minutes</label></div>
+            <div class="label_us"><label><div>各タスク間の時間</div><input class="min-input" type="number" min="0"  name="bt_time" value="10" required>minutes</label></div>
           </div>
         </div>
 

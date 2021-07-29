@@ -69,11 +69,12 @@ body{
   margin-left: auto;
   margin-right: auto;
   width: 80%;
-  height: 300px;
   text-align: center;
   margin-top: 20px;
+  display: grid;
+  padding: 20px;
+  grid-template-columns: repeat(7, 1fr);
 }
-
 #task_index{
   width: 100%;
   display: grid;
@@ -125,6 +126,10 @@ body{
 .tasks .min .min_tex{
   font-size: small;
   vertical-align: bottom;
+}
+#task_graph span{
+  font-size: 200%;
+  margin-right: 5px;
 }
 
 /* user */
@@ -187,9 +192,6 @@ body{
   width: 50%;
   text-align: left;
 }
-/* #user_setting div{
-  display:flex;
-} */
 .label_us{
   margin-top: 20px;
 }
@@ -197,7 +199,7 @@ body{
   margin-left: auto;
   margin-right: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(7, 1fr);
   width: 80%;
 }
 #user_setting .table_col input{
@@ -221,6 +223,7 @@ body{
 #user_wrapper #support{
   margin-top: 20px;
   padding: 10px 20px;
+  padding-left: 45px;
 }
 #user_wrapper #support ol{
   display: grid;

@@ -6,13 +6,21 @@
 {% endblock %}
 {% block body %}
 <div id="task_graph" class="numo">
-  <div id="task_graph_1">20</div>
-  <div id="task_graph_2">20</div>
-  <div id="task_graph_3">20</div>
-  <div id="task_graph_4">20</div>
-  <div id="task_graph_5">20</div>
-  <div id="task_graph_6">20</div>
-  <div id="task_graph_7">20</div>
+  <div style="grid-column-start: 1;grid-column-end: 8; margin-bottom: 10px;"><strong>タスクの締め切りの割合（Time requiredを元に計算）</strong></div>
+  <div id="task_graph_1">error</div>
+  <div id="task_graph_2">error</div>
+  <div id="task_graph_3">error</div>
+  <div id="task_graph_4">error</div>
+  <div id="task_graph_5">error</div>
+  <div id="task_graph_6">error</div>
+  <div id="task_graph_7">error</div>
+  <div><span>{{ per[0] }}</span>%</div>
+  <div><span>{{ per[1] }}</span>%</div>
+  <div><span>{{ per[2] }}</span>%</div>
+  <div><span>{{ per[3] }}</span>%</div>
+  <div><span>{{ per[4] }}</span>%</div>
+  <div><span>{{ per[5] }}</span>%</div>
+  <div><span>{{ per[6] }}</span>%</div>
 </div>
 <br><br>
 <div id="cont_wrapper">
@@ -29,7 +37,7 @@
       <input type="text" name="Name" required>
       <input type="text" name="Tag" required>
       <input type="datetime-local" name="Deadline" id="date"required>
-      <label><input type="number" id="form_time" name="time" placeholder="60" required>minutes</label>
+      <label><input type="number" id="form_time" name="time" placeholder="60" min="0" required>minutes</label>
     </form>
   </div>
   <div id="task_group" class="numo">
