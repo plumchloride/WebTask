@@ -5,7 +5,7 @@
 <script type="text/javascript" src="../static/js/DaySet.js" defer></script>
 {% endblock %}
 {% block body %}
-<div id="task_graph">
+<div id="task_graph" class="numo">
   <div id="task_graph_1">20</div>
   <div id="task_graph_2">20</div>
   <div id="task_graph_3">20</div>
@@ -16,7 +16,7 @@
 </div>
 <br><br>
 <div id="cont_wrapper">
-  <div id="task_index">
+  <div id="task_index" class="numo">
     <div>Id</div>
     <div>Name</div>
     <div>Tag</div>
@@ -32,7 +32,7 @@
       <label><input type="number" id="form_time" name="time" placeholder="60" required>minutes</label>
     </form>
   </div>
-  <div id="task_group">
+  <div id="task_group" class="numo">
     {% for i in index  %}
     <div class="tasks">
       <div class="tasks_id">{{ i+1 }}</div>
