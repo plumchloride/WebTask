@@ -61,16 +61,16 @@
             <div class="label_us"><label><div>1日の娯楽時間</div><input class="min-input" type="number" minlength="0" name="hoby_time" value="60" required>minutes</label></div>
             <div class="radio label_us"><div>タスク取り組みに対する方向性1</div>
               <div>
-                <label><input type="radio" name="task_ve_1" value="sleep" required>すぐ取り組む</label>
-                <label><input type="radio" checked name="task_ve_1" value="study">コツコツ</label>
-                <label><input type="radio" name="task_ve_1" value="hoby">ギリギリに</label>
+                <label><input type="radio" name="task_ve_1" value="now" required>すぐ取り組む</label>
+                <label><input type="radio" checked name="task_ve_1" value="kotukotu">コツコツ</label>
+                <label><input type="radio" name="task_ve_1" value="late">ギリギリに</label>
               </div>
             </div>
             <div class="radio label_us"><div>タスク取り組みに対する方向性2</div>
               <div>
-                <label><input type="radio" name="task_ve_2" value="sleep" required>朝にまとめて</label>
-                <label><input type="radio" checked name="task_ve_2" value="sleep">夜にまとめて</label>
-                <label><input type="radio" name="task_ve_2" value="sleep">娯楽を挟みつつ1日中</label>
+                <label><input type="radio" name="task_ve_2" value="morning" required>朝にまとめて</label>
+                <label><input type="radio" checked name="task_ve_2" value="night">夜にまとめて</label>
+                <label><input type="radio" name="task_ve_2" value="allday">娯楽を挟みつつ1日中</label> <!-- これ一番きつくない？ -->
               </div>
             </div>
             <div class="radio label_us"><div>時間が足りない場合に削るカテゴリー 1</div>
@@ -95,11 +95,10 @@
             <div class="label_us"><label><div>昼休憩の時間</div><input class="min-input" type="number" minlength="0"  name="lunch_time" value="60" required>minutes</label></div>
             <div class="label_us"><label><div>夜飯＋お風呂等の開始時間</div><input type="time" name="bath_start_time" value="20:00" required></label></div>
             <div class="label_us"><label><div>夜飯＋お風呂等の時間</div><input class="min-input" type="number"  minlength="0" name="bath_time" value="90" required>minutes</label></div>
-            <div class="label_us"><label><div>タスク時間の上乗せ<br><small>(どれくらい余裕を持つか)</small></div><input class="min-input" type="number" name="hoby_time" value="0" required>%</label></div>
+            <div class="label_us"><label><div>タスク時間の上乗せ<br><small>(どれくらい余裕を持つか)</small></div><input class="min-input" type="number" name="add_tasktime" value="0" required>%</label></div>
             <div class="label_us"><label><div>各タスク間の時間</div><input class="min-input" type="number" minlength="0"  name="bt_time" value="10" required>minutes</label></div>
           </div>
         </div>
-        
 
         <!-- <div class="table_col">
           <div style="color: red;">Sun</div>
@@ -123,6 +122,53 @@
         <button type="submit">保存</button>
       </form>
     </div>
+  </div>
+  <div id="now_data">
+    <table>
+      <thead>
+          <tr>
+              <th colspan="10">現在の設定</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <th>睡眠開始時刻</th>
+            <td>{{ settings[1] }}</td>
+            <th>1日の睡眠時間</th>
+            <td>{{ settings[2] }}</td>
+            <th>1日の自習時間</th>
+            <td>{{ settings[3] }}</td>
+            <th>1日の娯楽時間</th>
+            <td>{{ settings[4] }}</td>
+            <th>時間が足りない場合に… 1</th>
+            <td>{{ settings[5] }}</td>
+          </tr>
+          <tr>
+            <th>時間が足りない場合に… 2</th>
+            <td>{{ settings[6] }}</td>
+            <th>タスク取り組みに対する方向性1</th>
+            <td>{{ settings[14] }}</td>
+            <th>タスク取り組みに対する方向性2</th>
+            <td>{{ settings[15] }}</td>
+            <th>朝の支度時間</th>
+            <td>{{ settings[7] }}</td>
+            <th>昼休憩の開始時間</th>
+            <td>{{ settings[8] }}</td>
+          </tr>
+          <tr>
+            <th>昼休憩の時間</th>
+            <td>{{ settings[9] }}</td>
+            <th>夜飯＋お風呂等の開始時間</th>
+            <td>{{ settings[10] }}</td>
+            <th>夜飯＋お風呂等の時間</th>
+            <td>{{ settings[11] }}</td>
+            <th>タスク時間の上乗せ</th>
+            <td>{{ settings[12] }}</td>
+            <th>各タスク間の時間</th>
+            <td>{{ settings[13] }}</td>
+          </tr>
+      </tbody>
+  </table>
   </div>
 </div>
 

@@ -89,9 +89,15 @@ def user():
     if request.method == "POST":
       if request.form["cut_time_1"] == request.form["cut_time_2"]:
         f_text = "削るカテゴリーについては1と2で別の物を選択してください"
-      if request.form["sleep_time"] +request.form["study_time"]+request.form["hoby_time"]+request.form["cut_time_1"]+request.form["cut_time_1"]+request.form["morning_time"]+request.form["lunch_time"]+request.form["bath_time"] > 1440:
+      if int(request.form["sleep_time"]) +int(request.form["study_time"])+int(request.form["hoby_time"])+int(request.form["morning_time"])+int(request.form["lunch_time"])+int(request.form["bath_time"]) > 1440:
         f_text = "一日の睡眠・自習・娯楽・昼休憩・夜飯の時間の和は1440分(24時間)未満にしてください"
-      setting = []
+      setting = [session["user_id"],request.form["start_sleep"],request.form["sleep_time"],request.form["study_time"],request.form["hoby_time"]
+                ,request.form["cut_time_1"],request.form["cut_time_2"],request.form["morning_time"],request.form["lunch_start_time"],request.form["lunch_time"]
+                ,request.form["bath_start_time"],request.form["bath_time"],request.form["bt_time"],request.form["add_tasktime"],request.form["task_ve_1"],request.form["task_ve_2"]]
+      database.add_setting(setting)
+      f_text = ""
+      return render_template("/auth/user.html",name=session["user_name"],flash_hand=f_text,settings = setting)
     if request.method == "GET":
       f_text = ""
-    return render_template("/auth/user.html",name=session["user_name"],flash_hand=f_text)
+      setting = database.read_setting(session["user_id"])
+    return render_template("/auth/user.html",name=session["user_name"],flash_hand=f_text,settings = setting)

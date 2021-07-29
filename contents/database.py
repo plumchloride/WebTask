@@ -60,5 +60,23 @@ def read_task(id):
       task["deadline"].append(i[4])
       task["time"].append(i[6])
   con.close()
-  print(task)
   return task
+
+def add_setting(task):
+  con = sqlite3.connect("./contents/db.db")
+  cur = con.cursor()
+  result =  cur.execute("SELECT * FROM setting WHERE user_id = ?;",(task[0],))
+  if len(result.fetchall()) != 1:
+    cur.execute('INSERT into setting (user_id, start_sleep, sleep_time, study_time, hoby_time,time_1,time_2,mornig_time,start_lunch,lunch_time,start_bath,bath_time,task_bt_time,add_tasktime,ve_1,ve_2) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',(task[0],task[1],task[2],task[3],task[4],task[5],task[6],task[7],task[8],task[9],task[10],task[11],task[12],task[13],task[14],task[15],))
+  else:
+    cur.execute('UPDATE setting SET user_id=?, start_sleep=?, sleep_time=?, study_time=?, hoby_time=?,time_1=?,time_2=?,mornig_time=?,start_lunch=?,lunch_time=?,start_bath=?,bath_time=?,task_bt_time=?,add_tasktime=?,ve_1=?,ve_2=? WHERE user_id = ?',(task[0],task[1],task[2],task[3],task[4],task[5],task[6],task[7],task[8],task[9],task[10],task[11],task[12],task[13],task[14],task[15],task[0],))
+  con.commit()
+  con.close()
+  return task
+
+def read_setting(id):
+  con = sqlite3.connect("./contents/db.db")
+  cur = con.cursor()
+  result =  cur.execute("SELECT * FROM setting WHERE user_id = ?;",(id,))
+  for i in result:
+    return i

@@ -244,3 +244,23 @@ body{
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+#now_data{
+  border-radius: 50px;
+  background: #d1d1d1;
+  box-shadow:  20px 20px 60px #b2b2b2,
+              -20px -20px 60px #f0f0f0;
+  margin-top: 40px;
+  padding: 10px 20px;
+}
+#now_data table tbody td{
+  text-align: left;
+}
+#now_data table tbody th{
+  text-align: left;
+}
+#now_data table thead th{
+  font-size: 150%;
+}
+#now_data table{
+  width: 100%;
+}
