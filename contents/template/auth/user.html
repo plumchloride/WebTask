@@ -4,9 +4,129 @@
 <meta name="description" content="ユーザー">
 {% endblock %}
 {% block body %}
-<dl>
-  <dt>ユーザー名</dt>
-  <dd>{{ name }}</dd>
-</dl>
-<a href="/logout">ログアウト</a>
+<div id="cont_wrapper">
+  <div id="user_wrapper">
+    <div>
+      <div id="user_name">
+        <dl>
+          <dt>ユーザー名</dt>
+          <dd>{{ name }}</dd>
+        </dl>
+      </div>
+      <div id="support">
+        <br>
+        <strong>6の倍数</strong>
+        <ol>
+          <div>
+            <li>6</li>
+            <li>12</li>
+            <li>18</li>
+            <li>24</li>
+            <li>30</li>
+            <li>36</li>
+            <li>42</li>
+            <li>48</li>
+            <li>54</li>
+            <li>60</li>
+            <li>66</li>
+            <li>72</li>
+          </div>
+          <div>
+            <li>78</li>
+            <li>84</li>
+            <li>90</li>
+            <li>96</li>
+            <li>102</li>
+            <li>108</li>
+            <li>114</li>
+            <li>120</li>
+            <li>126</li>
+            <li>132</li>
+            <li>138</li>
+            <li>144</li>
+          </div>
+        </ol>
+      </div>
+      <a href="/logout" id="logout_a" style="text-decoration: none;"><div id="logout">
+        ログアウト
+      </div></a>
+    </div>
+    <div id="user_setting">
+      <form action="/user" method=post>
+        <div class="form_wrapper_wrapper">
+          <div class="form_wrapper">
+            <div class="label_us"><label><div>睡眠開始時刻</div><div><input type="time" name="start_sleep" value="23:00" required></div></label></div>
+            <div class="label_us"><label><div>1日の睡眠時間</div><input class="min-input" type="number" minlength="0" name="sleep_time" value="480" required>minutes</label></div>
+            <div class="label_us"><label><div>1日の自習時間</div><input class="min-input" type="number" minlength="0" name="study_time" value="180" required>minutes</label></div>
+            <div class="label_us"><label><div>1日の娯楽時間</div><input class="min-input" type="number" minlength="0" name="hoby_time" value="60" required>minutes</label></div>
+            <div class="radio label_us"><div>タスク取り組みに対する方向性1</div>
+              <div>
+                <label><input type="radio" name="task_ve_1" value="sleep" required>すぐ取り組む</label>
+                <label><input type="radio" checked name="task_ve_1" value="study">コツコツ</label>
+                <label><input type="radio" name="task_ve_1" value="hoby">ギリギリに</label>
+              </div>
+            </div>
+            <div class="radio label_us"><div>タスク取り組みに対する方向性2</div>
+              <div>
+                <label><input type="radio" name="task_ve_2" value="sleep" required>朝にまとめて</label>
+                <label><input type="radio" checked name="task_ve_2" value="sleep">夜にまとめて</label>
+                <label><input type="radio" name="task_ve_2" value="sleep">娯楽を挟みつつ1日中</label>
+              </div>
+            </div>
+            <div class="radio label_us"><div>時間が足りない場合に削るカテゴリー 1</div>
+              <div>
+                <label><input type="radio" name="cut_time_1" value="sleep" required>睡眠時間</label>
+                <label><input type="radio" name="cut_time_1" value="study">自習時間</label>
+                <label><input type="radio" checked name="cut_time_1" value="hoby">娯楽時間</label>
+              </div>
+            </div>
+            <div class="radio label_us"><div>時間が足りない場合に削るカテゴリー 2</div>
+              <div>
+                <label><input type="radio" checked name="cut_time_2" value="sleep" required>睡眠時間</label>
+                <label><input type="radio" name="cut_time_2" value="study">自習時間</label>
+                <label><input type="radio" name="cut_time_2" value="hoby">娯楽時間</label>
+              </div>
+            </div>
+            <div class="label_us" style="color: red;">{{ flash_hand }}</div>
+          </div>
+          <div class="form_wrapper">
+            <div class="label_us"><label><div>朝の支度時間</div><input class="min-input" type="number" minlength="0"  name="morning_time" value="60" required>minutes</label></div>
+            <div class="label_us"><label><div>昼休憩の開始時間</div><input type="time" name="lunch_start_time" value="12:00" required></label></div>
+            <div class="label_us"><label><div>昼休憩の時間</div><input class="min-input" type="number" minlength="0"  name="lunch_time" value="60" required>minutes</label></div>
+            <div class="label_us"><label><div>夜飯＋お風呂等の開始時間</div><input type="time" name="bath_start_time" value="20:00" required></label></div>
+            <div class="label_us"><label><div>夜飯＋お風呂等の時間</div><input class="min-input" type="number"  minlength="0" name="bath_time" value="90" required>minutes</label></div>
+            <div class="label_us"><label><div>タスク時間の上乗せ<br><small>(どれくらい余裕を持つか)</small></div><input class="min-input" type="number" name="hoby_time" value="0" required>%</label></div>
+            <div class="label_us"><label><div>各タスク間の時間</div><input class="min-input" type="number" minlength="0"  name="bt_time" value="10" required>minutes</label></div>
+          </div>
+        </div>
+        
+
+        <!-- <div class="table_col">
+          <div style="color: red;">Sun</div>
+          <div>Mon</div>
+          <div>Tue</div>
+          <div>Wed</div>
+          <div>Thu</div>
+          <div>Fri</div>
+          <div style="color: blue;">Sat</div>
+        </div>
+        <div class="table_col">
+          <div><input type="time" name="start_sleep_sun" required></dt></div>
+          <div><input type="time" name="start_sleep_mon" required></dt></div>
+          <div><input type="time" name="start_sleep_tue" required></dt></div>
+          <div><input type="time" name="start_sleep_wed" required></dt></div>
+          <div><input type="time" name="start_sleep_thu" required></dt></div>
+          <div><input type="time" name="start_sleep_fri" required></dt></div>
+          <div><input type="time" name="start_sleep_sat" required></dt></div>
+        </div> -->
+        <br>
+        <button type="submit">保存</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
 {% endblock %}

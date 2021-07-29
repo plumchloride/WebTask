@@ -6,12 +6,13 @@
 {% block body %}
 <div id="task_graph"></div>
 <br><br>
-<div id="task">
+<div id="cont_wrapper">
   <div id="task_index">
     <div>Id</div>
     <div>Name</div>
     <div>Tag</div>
     <div>Deadline</div>
+    <div>Time required</div>
   </div>
   <div id="add_task">
     <form id="add_task_form" action="/task" method=post>
@@ -19,6 +20,7 @@
       <input type="text" name="Name" required>
       <input type="text" name="Tag" required>
       <input type="datetime-local" name="Deadline" id="date"required>
+      <label><input type="number" id="form_time" name="time" placeholder="60" required>minutes</label>
     </form>
   </div>
   <div id="task_group">
@@ -27,7 +29,8 @@
       <div class="tasks_id">{{ i+1 }}</div>
       <div>{{ task_names[i]}}</div>
       <div>{{ tags[i] }}</div>
-      <div>{{ deadline_days[i][:10] }} {{ deadline_times[i][-4:] }}</div>
+      <div>{{ deadline_days[i][:10] }} {{ deadline_times[i][-5:] }}</div>
+      <div class="min"><div>{{ time[i] }}</div><div class="min_tex">minutes</div></div>
     </div>
     {% endfor %}
 

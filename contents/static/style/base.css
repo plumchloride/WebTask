@@ -1,5 +1,6 @@
 body{
   margin: 0;
+  background: #d1d1d1;
 }
 #all_wrapper{
   display: flex;
@@ -7,7 +8,7 @@ body{
   background: #d1d1d1;
 }
 #icon_link{
-  position: absolute;
+  position: fixed;
   right: 10px;
   bottom: 10px;
   font-size: small;
@@ -43,6 +44,22 @@ body{
   float: bottom;
   bottom: 10px;
 }
+#nav span{
+  display: block;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  margin-top: -20px;
+  margin-bottom: 10px;
+}
+#cont_wrapper{
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+
+/* task */
 #task_graph{
   margin-left: auto;
   margin-right: auto;
@@ -55,15 +72,11 @@ body{
   text-align: center;
   margin-top: 20px;
 }
-#task{
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-}
+
 #task_index{
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 5fr 2fr 2fr;
+  grid-template-columns: 1fr 5fr 2fr 2fr 2fr;
   border-radius: 50px;
   background: #d1d1d1;
   box-shadow:  20px 20px 60px #b2b2b2,
@@ -78,7 +91,10 @@ body{
   padding-bottom: 10px;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 5fr 2fr 2fr;
+  grid-template-columns: 1fr 5fr 2fr 2fr 2fr;
+}
+#add_task_form #form_time{
+  width: 50%;
 }
 #add_task_form input{
   margin:0 5px;
@@ -86,7 +102,7 @@ body{
 .tasks{
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 5fr 2fr 2fr;
+  grid-template-columns: 1fr 5fr 2fr 2fr 2fr;
 }
 .tasks div{
   margin: 7px;
@@ -103,4 +119,128 @@ body{
   margin-top: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.tasks .min{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.tasks .min div{
+  margin: 0;
+}
+.tasks .min .min_tex{
+  font-size: small;
+  vertical-align: bottom;
+}
+
+/* user */
+#cont_wrapper #user_wrapper{
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+#cont_wrapper #user_name{
+  border-radius: 50px;
+  background: #d1d1d1;
+  box-shadow:  20px 20px 60px #b2b2b2,
+              -20px -20px 60px #f0f0f0;
+  margin-top: 20px;
+  padding: 10px 20px;
+  text-align: center;
+  height:9ex;
+}
+#logout{
+  border-radius: 50px;
+  background: #d1d1d1;
+  box-shadow:  20px 20px 60px #b2b2b2,
+              -20px -20px 60px #f0f0f0;
+  margin-top: 50px;
+  padding: 10px 20px;
+  text-align: center;
+  height:9ex;
+  vertical-align: bottom;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  text-decoration: none;
+}
+#logout_a :hover{
+  border-radius: 50px;
+  background: #d1d1d1;
+  box-shadow: inset 20px 20px 60px #b2b2b2,
+              inset -20px -20px 60px #f0f0f0 !important;
+}
+#cont_wrapper #user_setting{
+  border-radius: 50px;
+  background: #d1d1d1;
+  box-shadow:  20px 20px 60px #b2b2b2,
+              -20px -20px 60px #f0f0f0;
+  margin-top: 20px;
+  padding: 10px 20px;
+  text-align: center;
+  margin-left: 5%;
+}
+#cont_wrapper #user_name dt{
+  font-weight: bold;
+}
+#cont_wrapper #user_name dd{
+  text-align: center;
+  margin-left: 0;
+}
+#user_setting .form_wrapper_wrapper{
+  width: 80%;
+  margin-left: 15%;
+  margin-right: 5%;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.form_wrapper{
+  display: inline-block;
+  width: 50%;
+  text-align: left;
+}
+/* #user_setting div{
+  display:flex;
+} */
+.label_us{
+  margin-top: 20px;
+}
+#user_setting .table_col{
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  width: 80%;
+}
+#user_setting .table_col input{
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+.radio label{
+  padding-right: 0.5em;
+  border: #666 solid 1px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.min-input{
+  width: 5em;
+}
+#user_setting button{
+  font-size: 120%;
+  width: 5em;
+}
+#user_wrapper #support{
+  border-radius: 50px;
+  background: #d1d1d1;
+  box-shadow:  20px 20px 60px #b2b2b2,
+              -20px -20px 60px #f0f0f0;
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+#user_wrapper #support ol{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }

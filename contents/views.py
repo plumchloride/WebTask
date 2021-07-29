@@ -51,12 +51,6 @@ def sign_in():
     if request.form["password"] != request.form["password2"]:
       flash("入力したパスワードが異なります")
       return render_template("sign-in.html",num=0)
-    if len(request.form["username"]) < 5:
-      flash("ユーザー名は5文字以上でお願いします")
-      return render_template("sign-in.html",num=0)
-    if len(request.form["password"]) < 5:
-      flash("パスワードは5文字以上でお願いします")
-      return render_template("sign-in.html",num=0)
     x,y,z = database.add_user(request.form["username"],request.form["password"])
     if x == 0:
       flash(y)
@@ -76,7 +70,7 @@ def task():
     nums = []
     for i in range(len(tasks["name"])):
       nums.append(i)
-    return render_template("/auth/task.html",task_names = tasks["name"],tags=tasks["tag"],deadline_days = tasks["deadline"],deadline_times = tasks["deadline"],index = nums)
+    return render_template("/auth/task.html",task_names = tasks["name"],tags=tasks["tag"],deadline_days = tasks["deadline"],deadline_times = tasks["deadline"],time=tasks["time"],index = nums)
 
 @app.route("/task", methods=["GET","POST"])
 def task_get():
@@ -85,11 +79,19 @@ def task_get():
   else:
     if request.method == "GET":
       return redirect(url_for("task"))
-    database.add_task(session["user_id"],request.form["Name"],request.form["Tag"],request.form["Deadline"])
+    database.add_task(session["user_id"],request.form["Name"],request.form["Tag"],request.form["Deadline"],request.form["time"])
     return redirect(url_for("task"))
-@app.route("/user", methods=["GET"])
+@app.route("/user", methods=["GET","POST"])
 def user():
   if not(auth.check()[0]):
     return auth.check()[1]
   else:
-    return render_template("/auth/user.html",name=session["user_name"])
+    if request.method == "POST":
+      if request.form["cut_time_1"] == request.form["cut_time_2"]:
+        f_text = "削るカテゴリーについては1と2で別の物を選択してください"
+      if request.form["sleep_time"] +request.form["study_time"]+request.form["hoby_time"]+request.form["cut_time_1"]+request.form["cut_time_1"]+request.form["morning_time"]+request.form["lunch_time"]+request.form["bath_time"] > 1440:
+        f_text = "一日の睡眠・自習・娯楽・昼休憩・夜飯の時間の和は1440分(24時間)未満にしてください"
+      setting = []
+    if request.method == "GET":
+      f_text = ""
+    return render_template("/auth/user.html",name=session["user_name"],flash_hand=f_text)

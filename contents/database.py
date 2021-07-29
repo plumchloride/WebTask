@@ -36,10 +36,10 @@ def add_user(name,password):
       con.close()
       return (2,i[0],i[1])
 
-def add_task(id,name,tag,deadline):
+def add_task(id,name,tag,deadline,time):
   con = sqlite3.connect("./contents/task.db")
   cur = con.cursor()
-  cur.execute('insert into task (user_id, name, tag, deadline,day) values (?,?,?,?,?)', (id,name,tag,deadline,deadline[:10]))
+  cur.execute('insert into task (user_id, name, tag, deadline,day,time) values (?,?,?,?,?,?)', (id,name,tag,deadline,deadline[:10],time,))
   con.commit()
   con.close()
   return
@@ -51,13 +51,14 @@ def read_task(id):
   print(day_list)
   con = sqlite3.connect("./contents/task.db")
   cur = con.cursor()
-  task = {"name":[],"tag":[],"deadline":[]}
+  task = {"name":[],"tag":[],"deadline":[],"time":[]}
   for i in day_list:
     result =  cur.execute("SELECT * FROM task WHERE day = ? and user_id = ?;",(i,id,))
     for i in result:
       task["name"].append(i[2])
       task["tag"].append(i[3])
       task["deadline"].append(i[4])
+      task["time"].append(i[6])
   con.close()
   print(task)
   return task
